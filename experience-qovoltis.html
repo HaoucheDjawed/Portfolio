@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingénieur Avant-Vente IRVE (stage) - Djawed Haouche</title>
+<meta name="description" content="Stage d'ingénieur avant-vente IRVE chez Qovoltis : études de faisabilité, fiches travaux, devis et suivi des raccordements Enedis.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23282C3F'/><path d='M18 4 9 18h6l-2 10 9-14h-6z' fill='%23C9CDF2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #282C3F; --indigo: #27389C; --lavender: #C9CDF2; --paper: #F5F6FB;
+  --ink: #1D2030; --muted: #5B6075; --line: #D8DBEE; --white: #FFFFFF;
+  --body: "Barlow", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --head: "Barlow Semi Condensed", "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--indigo); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 4px; }
+h1, h2 { font-family: var(--head); line-height: 1.15; margin: 0; }
+p { margin: 0 0 1em; max-width: 680px; }
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+.hero { background: var(--navy); color: var(--white); padding: 32px 0 48px; }
+.hero .back { color: var(--lavender); font-weight: 500; display: inline-block; margin-bottom: 32px; }
+.hero .back:focus-visible { outline-color: var(--lavender); }
+.head-row { display: flex; align-items: center; gap: 28px; }
+.lit { width: 128px; height: 44px; flex-shrink: 0; overflow: visible; }
+.lit path { stroke: var(--lavender); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+.lit circle.node { fill: var(--lavender); }
+.lit .lamp { fill: #FAC775; stroke: var(--lavender); stroke-width: 2.5; }
+.lit path.rays { stroke: #FAC775; }
+.lit path.flow { stroke: #E89A1C; stroke-dasharray: 4 6; animation: flow 0.6s linear infinite; }
+.lit text { fill: #B9BDD6; font-family: var(--head); font-size: 12px; font-weight: 600; }
+@keyframes flow { to { stroke-dashoffset: -10; } }
+@media (prefers-reduced-motion: reduce) { .lit path.flow { animation: none; } }
+.when { color: #B9BDD6; margin: 0 0 4px; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; }
+.where { color: var(--lavender); font-family: var(--head); font-size: 1.25rem; font-weight: 500; margin: 6px 0 0; }
+main section { padding-top: 44px; }
+main h2 { font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+ul.tasks { margin: 0; padding-left: 20px; max-width: 700px; }
+ul.tasks li { margin-bottom: 6px; }
+ul.sites { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 560px; }
+ul.sites li { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; }
+ul.sites strong { display: block; font-family: var(--head); font-size: 1.2rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+ul.sites span { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 640px) { ul.sites { grid-template-columns: 1fr; } }
+ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; max-width: 720px; }
+ol.steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 4px; padding: 12px 0; border-top: 1px solid var(--line); }
+ol.steps li:last-child { border-bottom: 1px solid var(--line); }
+ol.steps li::before {
+  content: counter(step); width: 30px; height: 30px; border-radius: 50%;
+  background: var(--lavender); color: var(--navy); font-family: var(--head); font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+ol.steps strong { color: var(--navy); }
+ul.acq li strong { color: var(--navy); }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stats li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--indigo); border-radius: 6px; padding: 18px 18px 16px; }
+.stats strong { display: block; font-family: var(--head); font-size: 2.1rem; font-weight: 700; color: var(--indigo); line-height: 1.1; margin-bottom: 6px; white-space: nowrap; }
+.stats span { display: block; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+ol.chain { list-style: none; margin: 8px 0 20px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; counter-reset: c; }
+ol.chain li {
+  counter-increment: c; background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 12px; font-size: 0.95rem; font-weight: 500; color: var(--navy);
+}
+ol.chain li::before { content: counter(c) ". "; color: var(--indigo); font-weight: 700; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.tags li { font-size: 0.9rem; padding: 4px 12px; border-radius: 4px; background: #E7E9F8; color: var(--navy); font-weight: 500; }
+.btn-back {
+  display: inline-block; margin-top: 48px; padding: 11px 20px; border-radius: 6px;
+  background: var(--navy); color: var(--white); font-weight: 600; text-decoration: none;
+}
+.btn-back:hover { background: var(--indigo); }
+footer { margin-top: 72px; background: var(--navy); color: #B9BDD6; padding: 28px 0; font-size: 0.9rem; }
+@media (max-width: 640px) {
+  .head-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html#experiences">Retour au portfolio</a>
+    <div class="head-row">
+      <svg class="lit" viewBox="0 0 128 44" aria-hidden="true"><circle class="node" cx="12" cy="24" r="5"/><path d="M12 24H100"/><path class="flow" d="M12 24H100"/><circle class="lamp" cx="110" cy="24" r="10"/><path d="M102.9 16.9L117.1 31.1M117.1 16.9L102.9 31.1"/><path class="rays" d="M100.1 14.1L96.6 10.6M110 10V5M119.9 14.1L123.4 10.6"/><text x="58" y="42" text-anchor="middle">Q2</text></svg>
+      <div>
+        <p class="when">Avril 2025 à septembre 2025</p>
+        <h1>Ingénieur Avant-Vente IRVE (stage)</h1>
+        <p class="where">Qovoltis, Arcueil</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Le contexte</h2>
+    <p>Qovoltis conçoit, fabrique, installe et opère des bornes de recharge pour véhicules électriques, en courant alternatif jusqu'à 22 kW. J'étais rattaché au pôle avant-vente du service commercial, aux côtés des business developers. Mon rôle&nbsp;: transformer une demande client, le plus souvent un hôtel ou une entreprise, en une solution technique chiffrée, prête à être présentée.</p>
+  </section>
+
+  <section>
+    <h2>En chiffres</h2>
+    <ul class="stats">
+      <li><strong>≈ 90</strong><span>études de faisabilité IRVE réalisées pour des hôtels et des entreprises</span></li>
+      <li><strong>22</strong><span>projets signés à partir de mes études</span></li>
+      <li><strong>2 → 20</strong><span>bornes par projet, des petits hôtels aux grands parkings</span></li>
+      <li><strong>≈ 12</strong><span>demandes de raccordement Enedis suivies</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Les sites étudiés</h2>
+    <ul class="sites">
+      <li><strong>Hôtels</strong><span>Le plus souvent avec un parking extérieur.</span></li>
+      <li><strong>Entreprises</strong><span>Sites tertiaires.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Le déroulé d'une étude</h2>
+    <ol class="steps">
+      <li><div><strong>Réception du dossier site sur HubSpot.</strong> Adresse, nombre de bornes souhaité, abonnement de puissance et, selon les cas, plan du site (emplacement du TGBT, places de parking), factures d'électricité et photos du compteur Linky (puissance maximale, puissance soutirée).</div></li>
+      <li><div><strong>Étude du site.</strong> Choix de l'emplacement des bornes, mesure des distances et tracé du cheminement des câbles.</div></li>
+      <li><div><strong>Visite technique si nécessaire.</strong> Quand une information manque, je planifie une visite sur Praxedo avec l'équipe technique terrain, qui prend les mesures et les photos sur site. Je valide la visite et l'utilise pour finaliser l'étude.</div></li>
+      <li><div><strong>Fiche travaux.</strong> Métrés de génie civil, armoire et protections, sections de câbles, chemins de câbles.</div></li>
+      <li><div><strong>Devis technique dans NetSuite.</strong> À partir de la base de prix de l'entreprise, en renseignant les unités et les métrés.</div></li>
+      <li><div><strong>Transmission au business developer.</strong> Il présente la fiche travaux et le devis au client. Je réponds à ses questions techniques et je participe parfois à l'appel pour expliquer la solution directement.</div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Le suivi des raccordements Enedis</h2>
+    <p>Pour l'équipe déploiement, je gérais les demandes de raccordement sur le portail Enedis, de la demande jusqu'à la mise en service du compteur&nbsp;:</p>
+    <ol class="chain">
+      <li>Demande sur le portail Enedis</li>
+      <li>Devis Enedis</li>
+      <li>Paiement de l'acompte</li>
+      <li>Placement du PDL et étude</li>
+      <li>Validation par l'ingénieur déploiement</li>
+      <li>Installation</li>
+      <li>Consuel</li>
+      <li>Souscription du contrat d'électricité</li>
+      <li>Mise en service du compteur</li>
+    </ol>
+    <p>Les délais annoncés (environ 15 jours pour le devis, 15 jours pour l'étude, 6 à 8 semaines de travaux, environ 3 mois jusqu'à la mise en service) étaient rarement tenus. Je suivais donc chaque dossier dans un tableau et relançais régulièrement Enedis pour éviter que les projets restent bloqués.</p>
+  </section>
+
+  <section>
+    <h2>Compétences acquises</h2>
+    <ul class="tasks acq">
+      <li><strong>Technique&nbsp;:</strong> études de faisabilité IRVE, dimensionnement des protections et des câbles, tracé des cheminements, chiffrage à partir des métrés.</li>
+      <li><strong>Normatif et réglementaire&nbsp;:</strong> NF C 15-100, procédure de raccordement Enedis de la demande à la mise en service du compteur.</li>
+      <li><strong>Méthodologie&nbsp;:</strong> transformer un besoin client en solution technique chiffrée, suivre des dossiers longs jusqu'au bout avec des relances régulières.</li>
+      <li><strong>Communication&nbsp;:</strong> expliquer une solution technique aux business developers et, parfois, directement au client.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Outils et normes</h2>
+    <ul class="tags">
+      <li>HubSpot</li><li>Praxedo</li><li>NetSuite</li><li>Portail Enedis</li><li>Excel</li><li>Google Maps</li><li>NF C 15-100</li>
+    </ul>
+  </section>
+
+  <a class="btn-back" href="index.html#experiences">Retour aux expériences</a>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Djawed Haouche</div>
+</footer>
+
+</body>
+</html>

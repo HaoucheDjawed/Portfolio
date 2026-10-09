@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conducteur de Travaux IRVE - Djawed Haouche</title>
+<meta name="description" content="Expérience de conducteur de travaux IRVE chez Green Team Energie : conformité, non-conformités, assistance technique aux techniciens.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23282C3F'/><path d='M18 4 9 18h6l-2 10 9-14h-6z' fill='%23C9CDF2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #282C3F; --indigo: #27389C; --lavender: #C9CDF2; --paper: #F5F6FB;
+  --ink: #1D2030; --muted: #5B6075; --line: #D8DBEE; --white: #FFFFFF;
+  --body: "Barlow", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --head: "Barlow Semi Condensed", "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--indigo); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 4px; }
+h1, h2 { font-family: var(--head); line-height: 1.15; margin: 0; }
+p { margin: 0 0 1em; max-width: 680px; }
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+.hero { background: var(--navy); color: var(--white); padding: 32px 0 48px; }
+.hero .back { color: var(--lavender); font-weight: 500; display: inline-block; margin-bottom: 32px; }
+.hero .back:focus-visible { outline-color: var(--lavender); }
+.head-row { display: flex; align-items: center; gap: 28px; }
+.lit { width: 128px; height: 44px; flex-shrink: 0; overflow: visible; }
+.lit path { stroke: var(--lavender); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+.lit circle.node { fill: var(--lavender); }
+.lit .lamp { fill: #FAC775; stroke: var(--lavender); stroke-width: 2.5; }
+.lit path.rays { stroke: #FAC775; }
+.lit path.flow { stroke: #E89A1C; stroke-dasharray: 4 6; animation: flow 0.6s linear infinite; }
+.lit text { fill: #B9BDD6; font-family: var(--head); font-size: 12px; font-weight: 600; }
+@keyframes flow { to { stroke-dashoffset: -10; } }
+@media (prefers-reduced-motion: reduce) { .lit path.flow { animation: none; } }
+.when { color: #B9BDD6; margin: 0 0 4px; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; }
+.where { color: var(--lavender); font-family: var(--head); font-size: 1.25rem; font-weight: 500; margin: 6px 0 0; }
+main section { padding-top: 44px; }
+main h2 { font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+ul.tasks { margin: 0; padding-left: 20px; max-width: 700px; }
+ul.tasks li { margin-bottom: 6px; }
+ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; max-width: 720px; }
+ol.steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 4px; padding: 12px 0; border-top: 1px solid var(--line); }
+ol.steps li:last-child { border-bottom: 1px solid var(--line); }
+ol.steps li::before {
+  content: counter(step); width: 30px; height: 30px; border-radius: 50%;
+  background: var(--lavender); color: var(--navy); font-family: var(--head); font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+ol.steps strong { color: var(--navy); }
+ol.cycle { list-style: none; margin: 0 0 20px; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 760px; counter-reset: cy; }
+ol.cycle li {
+  counter-increment: cy; background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: 12px 14px; font-family: var(--head); font-size: 1.1rem; font-weight: 600; color: var(--navy);
+}
+ol.cycle li::before { content: counter(cy); display: block; font-size: 0.85rem; color: var(--muted); }
+ol.cycle li.me { background: var(--navy); border-color: var(--navy); color: var(--white); }
+ol.cycle li.me::before { color: var(--lavender); }
+ol.cycle li.me span { display: block; font-family: var(--body); font-size: 0.85rem; font-weight: 500; color: #FAC775; }
+@media (max-width: 640px) { ol.cycle { grid-template-columns: 1fr 1fr; } }
+ul.acq li strong { color: var(--navy); }
+ol.chain { list-style: none; margin: 8px 0 20px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; counter-reset: c; }
+ol.chain li {
+  counter-increment: c; background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 12px; font-size: 0.95rem; font-weight: 500; color: var(--navy);
+}
+ol.chain li::before { content: counter(c) ". "; color: var(--indigo); font-weight: 700; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.tags li { font-size: 0.9rem; padding: 4px 12px; border-radius: 4px; background: #E7E9F8; color: var(--navy); font-weight: 500; }
+.btn-back {
+  display: inline-block; margin-top: 48px; padding: 11px 20px; border-radius: 6px;
+  background: var(--navy); color: var(--white); font-weight: 600; text-decoration: none;
+}
+.btn-back:hover { background: var(--indigo); }
+footer { margin-top: 72px; background: var(--navy); color: #B9BDD6; padding: 28px 0; font-size: 0.9rem; }
+@media (max-width: 640px) {
+  .head-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html#experiences">Retour au portfolio</a>
+    <div class="head-row">
+      <svg class="lit" viewBox="0 0 128 44" aria-hidden="true"><circle class="node" cx="12" cy="24" r="5"/><path d="M12 24H100"/><path class="flow" d="M12 24H100"/><circle class="lamp" cx="110" cy="24" r="10"/><path d="M102.9 16.9L117.1 31.1M117.1 16.9L102.9 31.1"/><path class="rays" d="M100.1 14.1L96.6 10.6M110 10V5M119.9 14.1L123.4 10.6"/><text x="58" y="42" text-anchor="middle">Q1</text></svg>
+      <div>
+        <p class="when">Janvier 2026 à mars 2026</p>
+        <h1>Conducteur de Travaux IRVE</h1>
+        <p class="where">Green Team Energie, Nanterre</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Le contexte</h2>
+    <p>Green Team Energie est un spécialiste de la recharge pour véhicules électriques, basé à Nantes. L'entreprise accompagne particuliers, entreprises, copropriétés et collectivités, de l'étude à la mise en service puis à la maintenance. Certifiée Qualifelec, elle compte 28 techniciens, intervient dans 19 départements et travaille avec des acteurs comme IZI by EDF, Izivia, Zeplug, Powerdot et ChargeGuru.</p>
+    <p>Je suis arrivé en janvier 2026, au moment où l'entreprise structurait ses opérations en quatre étapes.</p>
+  </section>
+
+  <section>
+    <h2>Le cycle d'une intervention</h2>
+    <ol class="cycle">
+      <li>Planification</li>
+      <li>Préparation</li>
+      <li class="me">Suivi<span>Mon rôle</span></li>
+      <li>Clôture</li>
+    </ol>
+    <p>J'étais en charge du suivi des interventions&nbsp;: m'assurer que chaque installation est conforme et documentée, et que l'intervention est clôturée sans délai pour que le dossier puisse être facturé.</p>
+  </section>
+
+  <section>
+    <h2>Mes missions</h2>
+    <ul class="tasks">
+      <li>Contrôle à chaud des interventions&nbsp;: conformité de l'installation, photos et comptes rendus des techniciens</li>
+      <li>Vérification des visites techniques (dossiers photos et rapports) pour détecter les anomalies avant intervention</li>
+      <li>Assistance technique à distance aux techniciens sur le terrain</li>
+      <li>Relation avec les clients pendant le suivi des interventions</li>
+      <li>Suivi des interventions au fil de l'eau et clôture des dossiers</li>
+      <li>Appui à la gestion des stocks et au contrôle de la réception du matériel</li>
+      <li>Participation à l'amélioration continue des process techniques</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Le lien avec le bureau d'études</h2>
+    <p>Je suivais les dossiers techniques des chantiers (avant-projet détaillé, notes de calcul) et je validais les retours du bureau d'études. J'ai aussi réalisé moi-même une partie des notes de calcul en interne. J'ai vu concrètement comment une étude se traduit sur le terrain, et quelles contraintes de chantier elle doit anticiper.</p>
+  </section>
+
+  <section>
+    <h2>Compétences acquises</h2>
+    <ul class="tasks acq">
+      <li><strong>Technique&nbsp;:</strong> contrôle de conformité des installations IRVE à partir des photos et comptes rendus, diagnostic à distance des problèmes électriques rencontrés par les techniciens, réalisation de notes de calcul.</li>
+      <li><strong>Normatif&nbsp;:</strong> application de la NF C 15-100 au contrôle des installations de bornes de recharge.</li>
+      <li><strong>Méthodologie&nbsp;:</strong> suivi des interventions au fil de l'eau jusqu'à la clôture, vérification des visites techniques avant intervention.</li>
+      <li><strong>Communication&nbsp;:</strong> interface entre les techniciens sur le terrain, le bureau d'études et les clients.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Outils et normes</h2>
+    <ul class="tags">
+      <li>NF C 15-100</li><li>Habilitation électrique</li><li>Sortly</li><li>Google Workspace</li><li>Suivi de chantier</li><li>Contrôle qualité</li><li>Notes de calcul</li><li>Relation client</li>
+    </ul>
+  </section>
+
+  <a class="btn-back" href="index.html#experiences">Retour aux expériences</a>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Djawed Haouche</div>
+</footer>
+
+</body>
+</html>
