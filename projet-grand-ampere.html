@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alimentation électrique de 10 bornes de recharge - Djawed Haouche</title>
+<meta name="description" content="Étude IRVE de Djawed Haouche : 10 bornes de recharge, protections, câbles et note de calcul conforme à la NF C 15-100.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23282C3F'/><path d='M18 4 9 18h6l-2 10 9-14h-6z' fill='%23C9CDF2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #282C3F; --indigo: #27389C; --lavender: #C9CDF2; --paper: #F5F6FB;
+  --ink: #1D2030; --muted: #5B6075; --line: #D8DBEE; --white: #FFFFFF;
+  --body: "Barlow", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --head: "Barlow Semi Condensed", "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+a { color: var(--indigo); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 4px; }
+h1, h2 { font-family: var(--head); line-height: 1.15; margin: 0; }
+p { margin: 0 0 1em; max-width: 680px; }
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+.hero { background: var(--navy); color: var(--white); padding: 32px 0 48px; }
+.hero .back { color: var(--lavender); font-weight: 500; display: inline-block; margin-bottom: 32px; }
+.hero .back:focus-visible { outline-color: var(--lavender); }
+.head-row { display: flex; align-items: center; gap: 28px; }
+.lit { width: 128px; height: 44px; flex-shrink: 0; overflow: visible; }
+.lit path { stroke: var(--lavender); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+.lit circle.node { fill: var(--lavender); }
+.lit .lamp { fill: #FAC775; stroke: var(--lavender); stroke-width: 2.5; }
+.lit path.rays { stroke: #FAC775; }
+.lit path.flow { stroke: #E89A1C; stroke-dasharray: 4 6; animation: flow 0.6s linear infinite; }
+.lit text { fill: #B9BDD6; font-family: var(--head); font-size: 12px; font-weight: 600; }
+@keyframes flow { to { stroke-dashoffset: -10; } }
+@media (prefers-reduced-motion: reduce) { .lit path.flow { animation: none; } }
+.when { color: #B9BDD6; margin: 0 0 4px; }
+.hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; }
+.where { color: var(--lavender); font-family: var(--head); font-size: 1.25rem; font-weight: 500; margin: 6px 0 0; }
+main section { padding-top: 44px; }
+main h2 { font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+ul.tasks { margin: 0; padding-left: 20px; max-width: 700px; }
+ul.tasks li { margin-bottom: 6px; }
+ul.sites { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 560px; }
+ul.sites li { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; }
+ul.sites strong { display: block; font-family: var(--head); font-size: 1.2rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+ul.sites span { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 640px) { ul.sites { grid-template-columns: 1fr; } }
+ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; max-width: 720px; }
+ol.steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 4px; padding: 12px 0; border-top: 1px solid var(--line); }
+ol.steps li:last-child { border-bottom: 1px solid var(--line); }
+ol.steps li::before {
+  content: counter(step); width: 30px; height: 30px; border-radius: 50%;
+  background: var(--lavender); color: var(--navy); font-family: var(--head); font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+ol.steps strong { color: var(--navy); }
+ul.acq li strong { color: var(--navy); }
+.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stats li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--indigo); border-radius: 6px; padding: 18px 18px 16px; }
+.stats strong { display: block; font-family: var(--head); font-size: 2.1rem; font-weight: 700; color: var(--indigo); line-height: 1.1; margin-bottom: 6px; white-space: nowrap; }
+.stats span { display: block; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+ol.chain { list-style: none; margin: 8px 0 20px; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; counter-reset: c; }
+ol.chain li {
+  counter-increment: c; background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 12px; font-size: 0.95rem; font-weight: 500; color: var(--navy);
+}
+ol.chain li::before { content: counter(c) ". "; color: var(--indigo); font-weight: 700; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.tags li { font-size: 0.9rem; padding: 4px 12px; border-radius: 4px; background: #E7E9F8; color: var(--navy); font-weight: 500; }
+.btn-back {
+  display: inline-block; margin-top: 48px; padding: 11px 20px; border-radius: 6px;
+  background: var(--navy); color: var(--white); font-weight: 600; text-decoration: none;
+}
+.btn-back:hover { background: var(--indigo); }
+footer { margin-top: 72px; background: var(--navy); color: #B9BDD6; padding: 28px 0; font-size: 0.9rem; }
+@media (max-width: 640px) {
+  .head-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+.note { color: var(--muted); font-size: 0.95rem; font-style: italic; }
+.table-wrap { overflow-x: auto; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; background: var(--white); margin: 8px 0 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-family: var(--head); font-weight: 600; color: var(--navy); background: #EEF0FA; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.ok { color: #1E7A46; font-weight: 600; }
+td.ko { color: #B4372F; font-weight: 600; }
+tr.hl td { background: #FFF6E0; }
+.docs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.doc { background: var(--white); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+.doc .thumb { display: block; aspect-ratio: 1.414; background: #FBFBFE; border-bottom: 1px solid var(--line); cursor: zoom-in; }
+.doc .thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.doc .thumb.text { cursor: pointer; display: flex; align-items: center; justify-content: center;
+  background-image: linear-gradient(#E9EBF8 1px, transparent 1px), linear-gradient(90deg, #E9EBF8 1px, transparent 1px);
+  background-size: 16px 16px; text-decoration: none; }
+.doc .thumb.text svg { width: 72px; height: 88px; }
+.doc .thumb.text svg * { fill: none; stroke: var(--navy); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.doc .thumb.text svg .acc { stroke: var(--indigo); }
+.doc-body { padding: 14px 16px 16px; }
+.doc-body strong { display: block; font-family: var(--head); font-size: 1.1rem; color: var(--navy); }
+.doc-body span { color: var(--muted); font-size: 0.92rem; }
+.doc-body a { display: inline-block; margin-top: 8px; font-weight: 600; }
+dialog.viewer { padding: 0; border: 0; border-radius: 8px; width: min(1200px, 96vw); max-height: 94vh; background: var(--white); }
+dialog.viewer::backdrop { background: rgba(29, 32, 48, 0.75); }
+dialog.viewer .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--white); }
+dialog.viewer .bar strong { font-family: var(--head); color: var(--navy); }
+dialog.viewer .bar div { display: flex; gap: 14px; align-items: center; }
+dialog.viewer button { font: inherit; font-weight: 600; border: 2px solid var(--navy); background: var(--navy); color: var(--white); border-radius: 6px; padding: 6px 14px; cursor: pointer; }
+dialog.viewer img { display: block; width: 100%; height: auto; }
+.flow { list-style: none; margin: 8px 0 16px; padding: 0; max-width: 560px; }
+.flow li { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; position: relative; margin-bottom: 26px; }
+.flow li:not(:last-child)::after { content: ""; position: absolute; left: 50%; bottom: -22px; width: 2px; height: 18px; background: var(--indigo); }
+.flow li strong { color: var(--navy); font-family: var(--head); font-size: 1.05rem; }
+.flow li span { display: block; color: var(--muted); font-size: 0.92rem; }
+.flow li .via { display: block; font-size: 0.85rem; color: var(--indigo); margin-top: 4px; }
+.flow .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.formula { font-family: ui-monospace, Consolas, monospace; background: #EEF0FA; padding: 2px 6px; border-radius: 4px; font-size: 0.92rem; }
+main h3 { font-family: var(--head); font-size: 1.2rem; color: var(--navy); margin: 22px 0 8px; }
+
+section.first { padding-top: 32px; }
+.tags.kw li { background: var(--white); border: 1px solid var(--lavender); }
+.bref { font-size: 1.08rem; margin-top: 18px; max-width: 760px; }
+.bref strong { color: var(--navy); }
+.hint { color: var(--muted); font-size: 0.95rem; margin: 18px 0 12px; }
+.doc-body .tool { display: block; font-style: normal; font-size: 0.8rem; font-weight: 600; color: var(--indigo); margin-bottom: 2px; }
+.more-link { margin-top: 18px; }
+@media (max-width: 860px) { .docs { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .docs { grid-template-columns: 1fr; } }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html#projets">Retour au portfolio</a>
+    <div class="head-row">
+      <svg class="lit" viewBox="0 0 128 44" aria-hidden="true"><circle class="node" cx="12" cy="24" r="5"/><path d="M12 24H100"/><path class="flow" d="M12 24H100"/><circle class="lamp" cx="110" cy="24" r="10"/><path d="M102.9 16.9L117.1 31.1M117.1 16.9L102.9 31.1"/><path class="rays" d="M100.1 14.1L96.6 10.6M110 10V5M119.9 14.1L123.4 10.6"/><text x="58" y="42" text-anchor="middle">IRVE</text></svg>
+      <div>
+        <p class="when">Étude personnelle, octobre 2026</p>
+        <h1>Alimentation électrique de 10 bornes de recharge</h1>
+        <p class="where">Domaine du Grand Ampère, Rennes (client fictif)</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="first">
+    <ul class="tags kw">
+      <li>IRVE</li><li>Dossier APS</li><li>Note de calcul Caneco BT</li><li>Schéma unifilaire Caneco BT</li><li>Bilan de puissance</li><li>Schéma de principe AutoCAD</li><li>Plan d'implantation AutoCAD</li><li>Dimensionnement câbles et protections</li><li>Calcul des Icc</li><li>Sélectivité</li><li>NF C 15-100</li><li>NF C 14-100</li><li>Métrés et DQE</li>
+    </ul>
+    <p class="bref"><strong>En bref&nbsp;:</strong> dossier APS IRVE complet pour 10 bornes (tarif jaune 250 kVA, régime TT)&nbsp;: note de calcul Caneco BT, schéma de principe et plan d'implantation AutoCAD, métrés.</p>
+  </section>
+
+  <section>
+    <h2>En chiffres</h2>
+    <ul class="stats">
+      <li><strong>10</strong><span>bornes&nbsp;: 9 × 7,4 kW et 1 × 22 kW, extensible à 20</span></li>
+      <li><strong>250 kVA</strong><span>raccordement Enedis tarif jaune, régime TT</span></li>
+      <li><strong>128 A</strong><span>par phase, toutes les bornes à pleine puissance</span></li>
+      <li><strong>4,08 %</strong><span>chute de tension maximale, pour une limite de 5 %</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Situation</h2>
+    <p>Équipement IRVE du parking d'un domaine privé&nbsp;: 10 bornes Schneider EVlink Pro AC (9 × 7,4 kW mono, 1 × 22 kW tri), extensible à 20, sur un nouveau raccordement Enedis tarif jaune 250 kVA, régime TT.</p>
+    <p>Ma mission&nbsp;: concevoir l'installation du point de livraison jusqu'aux bornes et la justifier par une note de calcul.</p>
+  </section>
+
+  <section>
+    <h2>Contraintes</h2>
+    <ul class="tasks acq">
+      <li><strong>Charge continue (Ks = Ku = 1)&nbsp;:</strong> sans gestion de charge, toutes les bornes à pleine puissance simultanément.</li>
+      <li><strong>Fourreaux existants&nbsp;:</strong> 8 circuits dans la même gaine (échauffement), ligne la plus longue à 57 m (chute de tension).</li>
+      <li><strong>Évolutivité&nbsp;:</strong> passage de 10 à 20 bornes sans reprise de la première tranche.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Solution proposée</h2>
+    <ul class="tasks acq">
+      <li><strong>Bilan de puissance&nbsp;:</strong> 128 A par phase, bornes réparties de façon équilibrée sur les trois phases.</li>
+      <li><strong>Architecture TGBT / TD IRVE&nbsp;:</strong> AGCP 400 A, DGCP IRVE 160 A avec arrêt d'urgence dédié, un départ par borne.</li>
+      <li><strong>Protections et sélectivité&nbsp;:</strong> disjoncteur 40 A courbe C et différentiel 30 mA type A-SI par borne (NF C 15-100, section 722), sélectivité totale.</li>
+      <li><strong>Calcul des Icc (NF C 14-100)&nbsp;:</strong> 19,9 kA au TGBT, pour le choix des pouvoirs de coupure.</li>
+      <li><strong>Dimensionnement des câbles&nbsp;:</strong> 25 mm² dans la gaine partagée (échauffement), 10 mm² sur la ligne de 57 m (chute de tension).</li>
+      <li><strong>Évolutivité&nbsp;:</strong> second départ 160 A en réserve, ou gestion de charge sur l'alimentation existante.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Livrables APS</h2>
+    <ul class="tasks acq">
+      <li><strong>Note de calcul (NDC) Caneco BT&nbsp;:</strong> modélisation complète (source, TGBT, DGCP, TD IRVE, 10 départs), vérifiée par des calculs manuels préalables.</li>
+      <li><strong>Schéma de principe et plan d'implantation AutoCAD</strong> (1:200).</li>
+      <li><strong>Métrés&nbsp;:</strong> bordereau des quantités des matériels et des câbles pour le chiffrage.</li>
+    </ul>
+    <p class="hint">Cliquez sur un document pour l'afficher en grand.</p>
+    <ul class="docs">
+      <li class="doc">
+        <a class="thumb" href="grand-ampere-schema.png" data-view="Schéma de principe"><img src="grand-ampere-schema-mini.png" alt="Schéma de principe, Du réseau Enedis aux 10 bornes, réserve tranche 2 incluse." loading="lazy"></a>
+        <div class="doc-body"><em class="tool">AutoCAD</em><strong>Schéma de principe</strong><span>Du réseau Enedis aux 10 bornes, réserve tranche 2 incluse.</span></div>
+      </li>
+      <li class="doc">
+        <a class="thumb" href="grand-ampere-plan.png" data-view="Plan d'implantation"><img src="grand-ampere-plan-mini.png" alt="Plan d'implantation, Échelle 1:200 : local technique, fourreaux, chambres de tirage, pieds de bornes." loading="lazy"></a>
+        <div class="doc-body"><em class="tool">AutoCAD</em><strong>Plan d'implantation</strong><span>Échelle 1:200 : local technique, fourreaux, chambres de tirage, pieds de bornes.</span></div>
+      </li>
+      <li class="doc">
+        <a class="thumb" href="grand-ampere-unifilaire.png" data-view="Schéma unifilaire"><img src="grand-ampere-unifilaire-mini.png" alt="Schéma unifilaire, TGBT, DGCP IRVE, TD IRVE et les 10 départs bornes." loading="lazy"></a>
+        <div class="doc-body"><em class="tool">Caneco BT</em><strong>Schéma unifilaire</strong><span>TGBT, DGCP IRVE, TD IRVE et les 10 départs bornes.</span></div>
+      </li>
+      <li class="doc">
+        <a class="thumb" href="grand-ampere-bilan.png" data-view="Bilan de puissance"><img src="grand-ampere-bilan-mini.png" alt="Bilan de puissance, 127,9 A par phase, Ks = 1, réserve disponible au TGBT." loading="lazy"></a>
+        <div class="doc-body"><em class="tool">Caneco BT</em><strong>Bilan de puissance</strong><span>127,9 A par phase, Ks = 1, réserve disponible au TGBT.</span></div>
+      </li>
+      <li class="doc">
+        <a class="thumb" href="grand-ampere-dqe.png" data-view="Bordereau des quantités"><img src="grand-ampere-dqe-mini.png" alt="Bordereau des quantités, Métrés des matériels et des câbles pour le chiffrage." loading="lazy"></a>
+        <div class="doc-body"><em class="tool">Excel</em><strong>Bordereau des quantités</strong><span>Métrés des matériels et des câbles pour le chiffrage.</span></div>
+      </li>
+    </ul>
+    <p class="more-link">Le détail des calculs et des justifications&nbsp;: <a href="etude-grand-ampere.html">étude technique détaillée</a>.</p>
+  </section>
+
+  <section>
+    <h2>Résultat</h2>
+    <ul class="tasks acq">
+      <li><strong>Conformité NF C 15-100&nbsp;:</strong> 10 circuits conformes, sélectivité totale, chute de tension maximale 4,08 % pour une limite de 5 %.</li>
+    </ul>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Circuit</th><th>Protection</th><th>Câble</th><th class="num">Longueur</th><th class="num">Chute de tension</th></tr></thead>
+        <tbody>
+          <tr><td>DGCP IRVE</td><td>NSXm TM160D 160 A</td><td>5G35</td><td class="num">9 m</td><td class="num">0,34 %</td></tr>
+          <tr><td>B1, B2 (pied 1)</td><td>iC60N 2P 40 A C + 30 mA A-SI</td><td>3G25</td><td class="num">36 m</td><td class="num">1,28 %</td></tr>
+          <tr><td>B3, B4 (pied 2)</td><td>iC60N 2P 40 A C + 30 mA A-SI</td><td>3G25</td><td class="num">34 m</td><td class="num">1,23 %</td></tr>
+          <tr><td>B5 (pied 3, 22 kW)</td><td>iC60L 4P 40 A C + 30 mA A-SI</td><td>5G25</td><td class="num">30 m</td><td class="num">0,73 %</td></tr>
+          <tr><td>B6 (pied 3)</td><td>iC60N 2P 40 A C + 30 mA A-SI</td><td>3G25</td><td class="num">30 m</td><td class="num">1,13 %</td></tr>
+          <tr><td>B7, B8 (pied 4)</td><td>iC60N 2P 40 A C + 30 mA A-SI</td><td>3G25</td><td class="num">34 m</td><td class="num">1,23 %</td></tr>
+          <tr class="hl"><td>B9, B10 (pied 5)</td><td>iC60N 2P 40 A C + 30 mA A-SI</td><td>3G10</td><td class="num">57 m</td><td class="num">4,08 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:20px">Étude inspirée d'un cas réel, client fictif.</p>
+  </section>
+
+  <a class="btn-back" href="index.html#projets">Retour aux projets</a>
+
+  <dialog class="viewer" id="viewer" aria-label="Aperçu du document">
+    <div class="bar"><strong id="viewer-title"></strong><div><a id="viewer-open" href="#" target="_blank" rel="noopener">Ouvrir en plein écran</a><button type="button" id="viewer-close">Fermer</button></div></div>
+    <img id="viewer-img" src="" alt="">
+  </dialog>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Djawed Haouche</div>
+</footer>
+<script>
+  // Aperçu des plans : un clic sur une vignette ouvre le plan en grand dans la page
+  (function () {
+    var dlg = document.getElementById('viewer');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    var img = document.getElementById('viewer-img');
+    var ttl = document.getElementById('viewer-title');
+    var opn = document.getElementById('viewer-open');
+    document.querySelectorAll('[data-view]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        img.src = a.getAttribute('href');
+        img.alt = a.dataset.view;
+        ttl.textContent = a.dataset.view;
+        opn.href = a.getAttribute('href');
+        dlg.showModal();
+      });
+    });
+    document.getElementById('viewer-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+</body>
+</html>
